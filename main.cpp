@@ -5,16 +5,17 @@
 #include "identifier.h"
 
 int main() {
-  int distance1;
-  int distance2;
-  int notePos[3];
-
-  getNotes(notePos,3);
-  snowmanSort(notePos, 3);
-  for (int i = 0; i < 3; i++) {
+  int length;
+  std::cout << "How many notes does your chord have? ";
+  std::cin >> length;
+  int notePos[length];
+  
+  getNotes(notePos, length);
+  // snowmanSort(notePos, length);
+  for (int i = 0; i < length; i++) {
     std::cout << notePos[i] << " ";
   }
-  std::cout << chordIdent(notePos, 3);
+  std::cout << chordIdent(notePos, length);
   
   return 0;
 }

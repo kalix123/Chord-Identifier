@@ -10,14 +10,10 @@ void getNotes(int notePos[], int length) {
     std::cin >> temp[i];
   }
   for (int i = 0; i < 12; i++) {
-    if (temp[0] == notes[i]) {
-      notePos[0] = i;
-    }
-    if (temp[1] == notes[i]) {
-      notePos[1] = i;
-    }
-    if (temp[2] == notes[i]) {
-      notePos[2] = i;
+    for (int j = 0; j < length; j++) {
+      if (temp[j] == notes[i]) {
+        notePos[j] = i;
+      }  
     }
   }
 }
@@ -37,11 +33,18 @@ std::string chordIdent(int const notePos[], int length) {
     distances[i] = notePos[i+1] - notePos[i];
   }
   
-  if (distances[0] == 4) {
-    chordName = "Major";
+  //triads
+  if (length == 3) {
+    if (distances[0] == 4 && distances[1] == 3) { //Major triad
+      chordName = "Major";
+    } else if (distances[0] == 3 && distances[0] == 4) { //Minor triad
+      chordName = "Minor";
+    } else if (distances[0] == 3 && distances[1] == 3) { //Diminished triad
+      chordName = "Diminished";
+    } else if (distances[0] == 4 && distances[1] == 4) { //Augmented triad
+      chordName = "Augmented";
+    }
   }
-  if (distances[0] == 3) {
-    chordName = "Minor";
-  }
+
   return chordName;
 }
