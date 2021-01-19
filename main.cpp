@@ -6,8 +6,10 @@
 
 int main() {
   int length;
-  std::cout << "How many notes does your chord have? ";
-  std::cin >> length;
+  
+  // std::cout << "How many notes does your chord have? ";
+  // std::cin >> length;
+  length = 3;
   int notePos[length];
   
   getNotes(notePos, length);
@@ -15,7 +17,7 @@ int main() {
   for (int i = 0; i < length; i++) {
     std::cout << notePos[i] << " ";
   }
-  std::cout << chordIdent(notePos, length);
+  std::cout << "type: " << chordIdent(notePos, length);
   
   return 0;
 }
